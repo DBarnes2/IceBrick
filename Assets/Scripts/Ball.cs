@@ -24,4 +24,10 @@ public class Ball : MonoBehaviour {
 			rb.AddForce(new Vector3(ballInitialVelocity, ballInitialVelocity, 0));
 		}
 	}
+
+	// Getter function for ball being in play
+	public bool IsInPlay()
+	{
+		return ballInPlay;
+	}
 }
