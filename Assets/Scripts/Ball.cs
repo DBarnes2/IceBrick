@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ball : MonoBehaviour {
+public class Ball : MonoBehaviour {
 
 	public float ballInitialVelocity = 600f;
 
@@ -11,9 +11,7 @@ public class ball : MonoBehaviour {
 	private bool ballInPlay;
 
 	void Awake () {
-
 		rb = GetComponent<Rigidbody2D>();
-
 	}
 
 	void Update () 

@@ -6,13 +6,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rain : MonoBehaviour {
+public class Rain : MonoBehaviour {
 
     // Rain object used in animation
 	public GameObject drop;
 
     // for the "Weather" method, to control rain spawning and shifting
-	public int count;
+	private int count;
 
     // When game starts
 	void Awake () {

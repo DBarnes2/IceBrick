@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class deadzone : MonoBehaviour {
+public class DeadZone : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D other)
 	{

@@ -12,16 +12,12 @@ public class GM : MonoBehaviour {
 	public GameObject gameOver;
 	public GameObject youWon;
 	public GameObject bricksPrefab;
-	public GameObject snowPrefab;
 	public GameObject paddle;
-	public GameObject ball;
 	public GameObject deathParticles;
 	public static GM instance = null;
 	public GameObject stonesPrefab;
 
 	private GameObject clonePaddle;
-//	private GameObject cloneBall;
-
 
 	// Use this for initialization
 	void Awake () 
@@ -38,20 +34,14 @@ public class GM : MonoBehaviour {
 	public void Setup()
 	{
 		clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
-//		Instantiate(paddle, transform.position, Quaternion.identity);
 		Instantiate(bricksPrefab, transform.position, Quaternion.identity);
-		Instantiate(snowPrefab, transform.position, Quaternion.identity);
-//		cloneBall = Instantiate(ball, ball.transform.position, Quaternion.identity) as GameObject;
-		Instantiate(ball, ball.transform.position, Quaternion.identity);
 	}
 
 	void CheckGameOver()
 	{
 		if (bricks < 1)
 		{
-			youWon.SetActive(true);
-			Time.timeScale = .25f;
-			Invoke ("Reset", resetDelay);
+			WinGame();
 		}
 
 		if (lives < 1)
@@ -82,9 +72,6 @@ public class GM : MonoBehaviour {
 	void SetupPaddle()
 	{
 		clonePaddle = Instantiate(paddle, transform.position, Quaternion.identity) as GameObject;
-//		cloneBall = Instantiate(ball, ball.transform.position, Quaternion.identity) as GameObject;
-//		Instantiate(paddle, transform.position, Quaternion.identity); 
-		Instantiate (ball, ball.transform.position, Quaternion.identity);
 	}
 
 	public void DestroyBrick()
@@ -93,12 +80,10 @@ public class GM : MonoBehaviour {
 		CheckGameOver();
 	}
 
-	public void HitGrass()
+	public void WinGame()
 	{
-		bricks = 0;
-		CheckGameOver();
+		youWon.SetActive(true);
+		Time.timeScale = .25f;
+		Invoke ("Reset", resetDelay);
 	}
-
-
-		
 }
